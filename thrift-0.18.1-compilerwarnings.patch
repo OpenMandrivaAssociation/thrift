@@ -1,0 +1,19 @@
+diff -up thrift-0.18.1/compiler/cpp/src/thrift/generate/t_java_generator.cc.omv~ thrift-0.18.1/compiler/cpp/src/thrift/generate/t_java_generator.cc
+--- thrift-0.18.1/compiler/cpp/src/thrift/generate/t_java_generator.cc.omv~	2023-08-04 15:59:10.863129203 +0200
++++ thrift-0.18.1/compiler/cpp/src/thrift/generate/t_java_generator.cc	2023-08-04 15:59:28.599316636 +0200
+@@ -5751,7 +5751,6 @@ void t_java_generator::generate_java_str
+     }
+ 
+     indent(out) << "oprot.writeBitSet(optionals, " << optional_count << ");" << endl;
+-    int j = 0;
+     for (f_iter = fields.begin(); f_iter != fields.end(); ++f_iter) {
+       if ((*f_iter)->get_req() == t_field::T_OPTIONAL
+           || (*f_iter)->get_req() == t_field::T_OPT_IN_REQ_OUT) {
+@@ -5760,7 +5759,6 @@ void t_java_generator::generate_java_str
+         generate_serialize_field(out, (*f_iter), "struct.", "", false);
+         indent_down();
+         indent(out) << "}" << endl;
+-        j++;
+       }
+     }
+   }

@@ -1,0 +1,57 @@
+diff -up thrift-0.18.1/lib/lua/src/luabitwise.c.omv~ thrift-0.18.1/lib/lua/src/luabitwise.c
+--- thrift-0.18.1/lib/lua/src/luabitwise.c.omv~	2023-08-04 17:49:30.938243153 +0200
++++ thrift-0.18.1/lib/lua/src/luabitwise.c	2023-08-04 17:49:52.174453368 +0200
+@@ -78,6 +78,10 @@ static const struct luaL_Reg funcs[] = {
+ };
+ 
+ int luaopen_libluabitwise(lua_State *L) {
++#if LUA_VERSION_NUM >= 502
++  luaL_newlib(L, funcs);
++#else
+   luaL_register(L, "libluabitwise", funcs);
++#endif
+   return 1;
+ }
+diff -up thrift-0.18.1/lib/lua/src/luabpack.c.omv~ thrift-0.18.1/lib/lua/src/luabpack.c
+--- thrift-0.18.1/lib/lua/src/luabpack.c.omv~	2023-08-04 17:48:56.533902991 +0200
++++ thrift-0.18.1/lib/lua/src/luabpack.c	2023-08-04 17:49:20.190136829 +0200
+@@ -303,6 +303,10 @@ static const struct luaL_Reg lua_bpack[]
+ };
+ 
+ int luaopen_libluabpack(lua_State *L) {
++#if LUA_VERSION_NUM >= 502
++  luaL_newlib(L, lua_bpack);
++#else
+   luaL_register(L, "libluabpack", lua_bpack);
++#endif
+   return 1;
+ }
+diff -up thrift-0.18.1/lib/lua/src/lualongnumber.c.omv~ thrift-0.18.1/lib/lua/src/lualongnumber.c
+--- thrift-0.18.1/lib/lua/src/lualongnumber.c.omv~	2023-08-04 17:48:23.049572434 +0200
++++ thrift-0.18.1/lib/lua/src/lualongnumber.c	2023-08-04 17:48:39.489734667 +0200
+@@ -223,6 +223,10 @@ LUALIB_API int luaopen_liblualongnumber(
+   lua_pop(L, 1);
+   set_methods(L, LONG_NUM_TYPE, methods);
+ 
++#if LUA_VERSION_NUM >= 502
++  luaL_newlib(L, funcs);
++#else
+   luaL_register(L, "liblualongnumber", funcs);
++#endif
+   return 1;
+ }
+diff -up thrift-0.18.1/lib/lua/src/luasocket.c.omv~ thrift-0.18.1/lib/lua/src/luasocket.c
+--- thrift-0.18.1/lib/lua/src/luasocket.c.omv~	2023-08-04 17:45:01.343593910 +0200
++++ thrift-0.18.1/lib/lua/src/luasocket.c	2023-08-04 17:48:05.689401263 +0200
+@@ -186,7 +186,11 @@ int luaopen_libluasocket(lua_State *L) {
+   set_methods(L, SOCKET_CLIENT, methods_client);
+   set_methods(L, SOCKET_SERVER, methods_server);
+ 
++#if LUA_VERSION_NUM >= 502
++  luaL_newlib(L, funcs_luasocket);
++#else
+   luaL_register(L, "luasocket", funcs_luasocket);
++#endif
+   return 1;
+ }
+ 
