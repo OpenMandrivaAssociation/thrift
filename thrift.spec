@@ -102,7 +102,7 @@ Python support for the Thrift cross-language framework
 
 %prep
 %autosetup -p1
-. %{_sysconfdir}/profile.d/90java.sh
+#. %{_sysconfdir}/profile.d/90java.sh
 # FIXME ruby is currently disabled because the build process tries
 # to download a custom version of rake and install it to system
 # directories (which of course fails as non-root).
@@ -121,11 +121,11 @@ Python support for the Thrift cross-language framework
 	--without-rs
 
 %build
-. %{_sysconfdir}/profile.d/90java.sh
+#. %{_sysconfdir}/profile.d/90java.sh
 %make_build
 
 %install
-. %{_sysconfdir}/profile.d/90java.sh
+#. %{_sysconfdir}/profile.d/90java.sh
 %make_install
 
 %files
