@@ -21,13 +21,17 @@ BuildRequires: php-cli
 BuildRequires: lua
 BuildRequires: nodejs
 BuildRequires: python
+BuildRequires: mono
 # FIXME java is not detected even if jdk-current is added as a
 # requirement and JAVA_HOME and PATH are set correctly.
 # Probably missing another dependency?
 #BuildRequires: jdk-current
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(openssl)
+BuildRequires: pkgconfig(libevent)
+BuildRequires: pkgconfig(lua)
 Requires: %{libname} = %{EVRD}
 
 %description
