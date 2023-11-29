@@ -4,7 +4,7 @@
 %global devname %{mklibname -d thrift}
 
 Name: thrift
-Version: 0.18.1
+Version: 0.19.0
 Release: 1
 Source0: https://dlcdn.apache.org/thrift/%{version}/thrift-%{version}.tar.gz
 Patch0: thrift-0.18.1-compilerwarnings.patch
