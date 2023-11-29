@@ -20,8 +20,10 @@ BuildRequires: golang
 BuildRequires: rust cargo
 BuildRequires: php-cli
 BuildRequires: lua
+BuildRequires: pkgconfig(lua)
 BuildRequires: nodejs
 BuildRequires: python
+BuildRequires: pkgconfig(python3)
 BuildRequires: mono
 # FIXME java is not detected even if jdk-current is added as a
 # requirement and JAVA_HOME and PATH are set correctly.
@@ -32,7 +34,6 @@ BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(openssl)
 BuildRequires: pkgconfig(libevent)
-BuildRequires: pkgconfig(lua)
 Requires: %{libname} = %{EVRD}
 
 %description
