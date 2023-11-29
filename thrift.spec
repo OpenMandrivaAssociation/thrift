@@ -15,6 +15,7 @@ License: Apache-2.0
 Group: System/Libraries
 BuildRequires: autoconf automake libtool make
 BuildRequires: boost-devel
+BuildRequires: boost-static-devel
 BuildRequires: golang
 BuildRequires: rust cargo
 BuildRequires: php-cli
