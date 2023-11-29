@@ -27,6 +27,7 @@ BuildRequires: python
 #BuildRequires: jdk-current
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(openssl)
 Requires: %{libname} = %{EVRD}
 
 %description
