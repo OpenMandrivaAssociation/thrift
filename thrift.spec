@@ -5,7 +5,7 @@
 
 Name: thrift
 Version: 0.19.0
-Release: 1
+Release: 2
 Source0: https://dlcdn.apache.org/thrift/%{version}/thrift-%{version}.tar.gz
 Patch0: thrift-0.18.1-compilerwarnings.patch
 Patch1: thrift-0.18.1-lua-5.2.patch
