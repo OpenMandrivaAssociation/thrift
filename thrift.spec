@@ -7,8 +7,8 @@ Name: thrift
 Version: 0.22.0
 Release: 1
 Source0: https://dlcdn.apache.org/thrift/%{version}/thrift-%{version}.tar.gz
-Patch0: thrift-0.18.1-compilerwarnings.patch
-Patch1: thrift-0.18.1-lua-5.2.patch
+#Patch0: thrift-0.18.1-compilerwarnings.patch
+#Patch1: thrift-0.18.1-lua-5.2.patch
 Summary: Cross-language service deployment
 URL: https://thrift.apache.org/
 License: Apache-2.0
