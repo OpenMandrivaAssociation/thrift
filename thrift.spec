@@ -125,7 +125,15 @@ Python support for the Thrift cross-language framework
 # FIXME rust (rs) is currently disabled because the build fails
 # /usr/bin/cargo fmt --all -- --check
 # error: no such command: `fmt`
+
+# Disable autotools python build as it attempts to use pip in online
+# mode and cannot find setuptools even when provided via BRs.
+# The python components are built outside of autotools in build and
+# install stages.
+
 %configure \
+	--without-py3 \
+	--without-python \
 	--without-nodejs \
 	--without-ruby \
 	--without-php \
@@ -134,10 +142,16 @@ Python support for the Thrift cross-language framework
 %build
 #. %{_sysconfdir}/profile.d/90java.sh
 %make_build
+pushd lib/py
+%py_build
+popd
 
 %install
 #. %{_sysconfdir}/profile.d/90java.sh
 %make_install
+pushd lib/py
+%py_install
+popd
 
 %files
 %{_bindir}/thrift
