@@ -3,37 +3,41 @@
 %global libname %{mklibname thrift}
 %global devname %{mklibname -d thrift}
 
-Name: thrift
-Version: 0.19.0
-Release: 2
-Source0: https://dlcdn.apache.org/thrift/%{version}/thrift-%{version}.tar.gz
-Patch0: thrift-0.18.1-compilerwarnings.patch
-Patch1: thrift-0.18.1-lua-5.2.patch
-Summary: Cross-language service deployment
-URL: https://thrift.apache.org/
-License: Apache-2.0
-Group: System/Libraries
-BuildRequires: autoconf automake libtool make
-BuildRequires: boost-devel
-BuildRequires: boost-static-devel
-BuildRequires: golang
-BuildRequires: rust cargo
-BuildRequires: php-cli
-BuildRequires: lua
-BuildRequires: pkgconfig(lua)
-BuildRequires: nodejs
-BuildRequires: python
-BuildRequires: pkgconfig(python3)
-BuildRequires: mono
+Name:		thrift
+Version:	0.22.0
+Release:	1
+Source0:	https://dlcdn.apache.org/thrift/%{version}/thrift-%{version}.tar.gz
+#Patch0:		thrift-0.18.1-compilerwarnings.patch
+#Patch1:		thrift-0.18.1-lua-5.2.patch
+Summary:	Cross-language service deployment
+URL:		https://thrift.apache.org/
+License:	Apache-2.0
+Group:		System/Libraries
+BuildRequires:	autoconf automake libtool make
+BuildRequires:	boost-devel
+BuildRequires:	boost-static-devel
+BuildRequires:	golang
+BuildRequires:	rust cargo
+BuildRequires:	php-cli
+BuildRequires:	lua
+BuildRequires:	pkgconfig(lua)
+BuildRequires:	nodejs
+BuildRequires:	python
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
+BuildRequires:	mono
 # FIXME java is not detected even if jdk-current is added as a
 # requirement and JAVA_HOME and PATH are set correctly.
 # Probably missing another dependency?
 #BuildRequires: jdk-current
-BuildRequires: pkgconfig(glib-2.0)
-BuildRequires: pkgconfig(Qt5Core)
-BuildRequires: pkgconfig(Qt5Network)
-BuildRequires: pkgconfig(openssl)
-BuildRequires: pkgconfig(libevent)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(openssl)
+BuildRequires:	pkgconfig(libevent)
+
 Requires: %{libname} = %{EVRD}
 
 %description
