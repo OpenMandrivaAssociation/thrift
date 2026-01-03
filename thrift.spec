@@ -125,8 +125,8 @@ Python support for the Thrift cross-language framework
 # FIXME rust (rs) is currently disabled because the build fails
 # /usr/bin/cargo fmt --all -- --check
 # error: no such command: `fmt`
-
 %configure \
+	--without-nodejs \
 	--without-ruby \
 	--without-php \
 	--without-rs
